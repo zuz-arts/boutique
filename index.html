@@ -1,1 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutique | Modern Essentials</title>
+    <meta
+      name="description"
+      content="Boutique is a modern lifestyle shop featuring curated fashion, accessories, and home essentials."
+    />
+    <style>
+      :root {
+        --bg: #fffaf6;
+        --panel: #ffffff;
+        --panel-soft: #f5efe9;
+        --primary: #3d2b2a;
+        --primary-soft: #8f6a5b;
+        --accent: #d9b08c;
+        --accent-soft: #f4d8ba;
+        --text: #2d2a2a;
+        --muted: #6a5e5b;
+        --line: rgba(61, 43, 42, 0.12);
+        --shadow: 0 20px 45px rgba(61, 43, 42, 0.12);
+      }
 
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        gap: 20px;
+      }
+
+      .brand {
+        font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--primary-soft);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover { color: var(--primary); }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 0.2s ease;
+      }
+
+      .nav-cta:hover { transform: translateY(-1px); }
+
+      .hero {
+        padding: 72px 0 54px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.06fr 0.94fr;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--primary);
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 18px 0 18px;
+        font-size: clamp(2.7rem, 2rem + 2vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+        font-weight: 700;
+      }
+
+      .hero-copy p {
+        margin: 0 0 28px;
+        max-width: 580px;
+        color: var(--muted);
+        font-size: 1.06rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 26px;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .button.primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: var(--shadow);
+      }
+
+      .button.secondary {
+        background: #fff;
+        color: var(--primary);
+        border: 1px solid var(--line);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        padding-top: 6px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: clamp(1.5rem, 1.2rem + 0.7vw, 2.1rem);
+        line-height: 1;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 560px;
+      }
+
+      .photo-card {
+        position: absolute;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .photo-card.main {
+        inset: 20px 0 60px 70px;
+      }
+
+      .photo-card.side {
+        width: 220px;
+        right: 18px;
+        top: 130px;
+        padding: 14px;
+        background: rgba(255,255,255,0.9);
+      }
+
+      .main-visual {
+        height: 100%;
+        min-height: 500px;
+        background:
+          linear-gradient(180deg, rgba(68,39,31,0.12), rgba(68,39,31,0.36)),
+          url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      }
+
+      .side-badge {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 12px;
+      }
+
+      .side-badge .tag {
+        display: inline-block;
+        padding: 7px 10px;
+        background: var(--panel-soft);
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .side-badge h3 {
+        margin: 12px 0 6px;
+        font-size: 1.1rem;
+      }
+
+      .side-badge p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .section {
+        padding: 42px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 24px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2rem, 1.5rem + 1vw, 3rem);
+        letter-spacing: -0.04em;
+      }
+
+      .section-head a {
+        color: var(--primary-soft);
+        font-weight: 700;
+      }
+
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .category {
+        background: linear-gradient(180deg, #fff 0%, #fffaf8 100%);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(61, 43, 42, 0.05);
+      }
+
+      .category-image {
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .category-content {
+        padding: 22px 20px 24px;
+      }
+
+      .category-content h3 {
+        margin: 0 0 8px;
+        font-size: 1.45rem;
+      }
+
+      .category-content p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .featured {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .product {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(61, 43, 42, 0.04);
+      }
+
+      .product-image {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .product-info {
+        padding: 18px 18px 22px;
+      }
+
+      .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .product-meta span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .product-info h3 {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 14px;
+      }
+
+      .price {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .tag-price {
+        color: var(--primary-soft);
+        background: var(--panel-soft);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.76rem;
+        font-weight: 700;
+      }
+
+      .story {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 28px;
+        padding: 18px 0 52px;
+      }
+
+      .story-panel {
+        background: linear-gradient(180deg, #fffaf6 0%, #fff 100%);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 28px;
+      }
+
+      .story-panel h2 {
+        font-size: clamp(2rem, 1.5rem + 1vw, 2.7rem);
+        margin: 10px 0 18px;
+        letter-spacing: -0.04em;
+      }
+
+      .story-panel p {
+        color: var(--muted);
+        margin: 0 0 20px;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 14px;
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--text);
+      }
+
+      .check {
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-top: 3px;
+      }
+
+      .story-visual {
+        min-height: 440px;
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(44, 30, 28, 0.12), rgba(44, 30, 28, 0.26)),
+          url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .newsletter {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+        color: #fff;
+        border-radius: 30px;
+        padding: 36px 32px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 26px;
+        align-items: center;
+      }
+
+      .newsletter h2 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 1.6rem + 1vw, 2.8rem);
+        letter-spacing: -0.04em;
+      }
+
+      .newsletter p {
+        margin: 0;
+        color: rgba(255,255,255,0.8);
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 999px;
+        padding: 10px;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        color: white;
+        padding: 14px 16px;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      .newsletter-form input::placeholder { color: rgba(255,255,255,0.7); }
+
+      .newsletter-form button {
+        border: none;
+        border-radius: 999px;
+        background: white;
+        color: var(--primary);
+        padding: 14px 22px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      footer {
+        padding: 30px 0 44px;
+      }
+
+      .footer-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .story,
+        .newsletter,
+        .categories,
+        .featured {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 420px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero {
+          padding-top: 42px;
+        }
+
+        .hero-visual {
+          min-height: 340px;
+        }
+
+        .photo-card.main {
+          inset: 20px 0 40px 20px;
+        }
+
+        .photo-card.side {
+          width: 180px;
+          right: 8px;
+          top: 90px;
+        }
+
+        .newsletter-form {
+          display: grid;
+          grid-template-columns: 1fr;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#">Boutique<span>.</span></a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#collections">Collections</a>
+          <a href="#featured">Featured</a>
+          <a href="#about">About</a>
+          <a href="#journal">Journal</a>
+        </nav>
+        <a class="nav-cta" href="#newsletter">Shop Now</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Curated living</span>
+            <h1>Elevate everyday essentials.</h1>
+            <p>
+              Discover refined pieces for your home, wardrobe, and routine—carefully chosen
+              to bring comfort, beauty, and a touch of luxury into daily life.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#featured">Explore Collection</a>
+              <a class="button secondary" href="#about">Our Story</a>
+            </div>
+
+            <div class="metrics" aria-label="Boutique metrics">
+              <div class="metric">
+                <strong>2k+</strong>
+                <span>happy customers</span>
+              </div>
+              <div class="metric">
+                <strong>150+</strong>
+                <span>premium items</span>
+              </div>
+              <div class="metric">
+                <strong>4.9/5</strong>
+                <span>average rating</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Boutique lifestyle image">
+            <div class="photo-card main">
+              <div class="main-visual"></div>
+            </div>
+            <div class="photo-card side">
+              <div class="side-badge">
+                <span class="tag">New arrival</span>
+                <h3>Soft neutrals</h3>
+                <p>Thoughtful pieces for a warm, modern home.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="collections">
+        <div class="container">
+          <div class="section-head">
+            <h2>Shop by mood</h2>
+            <a href="#featured">View all</a>
+          </div>
+
+          <div class="categories">
+            <article class="category">
+              <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="category-content">
+                <h3>Wardrobe</h3>
+                <p>Polished staples and statement layers made to mix beautifully.</p>
+              </div>
+            </article>
+
+            <article class="category">
+              <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="category-content">
+                <h3>Home</h3>
+                <p>Warm, tactile decor and everyday objects for elevated spaces.</p>
+              </div>
+            </article>
+
+            <article class="category">
+              <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="category-content">
+                <h3>Accessories</h3>
+                <p>Finishing touches that add personality to every look and room.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-head">
+            <h2>Featured picks</h2>
+            <a href="#newsletter">Get the look</a>
+          </div>
+
+          <div class="featured">
+            <article class="product">
+              <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="product-info">
+                <div class="product-meta">
+                  <span>Home</span>
+                  <span>New</span>
+                </div>
+                <h3>Amber Vase</h3>
+                <div class="price-row">
+                  <div class="price">$48</div>
+                  <div class="tag-price">Best seller</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="product-info">
+                <div class="product-meta">
+                  <span>Wardrobe</span>
+                  <span>Limited</span>
+                </div>
+                <h3>Ivory Trench</h3>
+                <div class="price-row">
+                  <div class="price">$132</div>
+                  <div class="tag-price">Editor pick</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="product-info">
+                <div class="product-meta">
+                  <span>Accessories</span>
+                  <span>Classic</span>
+                </div>
+                <h3>Leather Tote</h3>
+                <div class="price-row">
+                  <div class="price">$96</div>
+                  <div class="tag-price">New drop</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product">
+              <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="product-info">
+                <div class="product-meta">
+                  <span>Beauty</span>
+                  <span>Giftable</span>
+                </div>
+                <h3>Signature Set</h3>
+                <div class="price-row">
+                  <div class="price">$58</div>
+                  <div class="tag-price">Bestseller</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section story" id="about">
+        <div class="story-panel">
+          <span class="eyebrow">Why boutique</span>
+          <h2>Thoughtful details, beautifully lived.</h2>
+          <p>
+            We believe the best purchases are the ones that feel personal—crafted to last,
+            designed to be loved, and chosen with intention.
+          </p>
+
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Curated collections from independent brands and timeless essentials.</li>
+            <li><span class="check">✓</span> Premium pieces chosen for quality, comfort, and effortless style.</li>
+            <li><span class="check">✓</span> Thoughtful service and quick delivery for a seamless shopping experience.</li>
+          </ul>
+        </div>
+
+        <div class="story-visual" aria-label="Boutique interior lifestyle"></div>
+      </section>
+
+      <section class="section" id="journal">
+        <div class="container">
+          <div id="newsletter" class="newsletter">
+            <div>
+              <h2>Join our list for new arrivals and private offers.</h2>
+              <p>Fresh edits, styling inspiration, and exclusive discounts delivered weekly.</p>
+            </div>
+
+            <form class="newsletter-form" action="#" method="post">
+              <input type="email" placeholder="Your email address" aria-label="Your email address" />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <div>© 2026 Boutique</div>
+        <div>Designed for everyday elegance</div>
+      </div>
+    </footer>
+  </body>
+</html>

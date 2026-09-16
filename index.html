@@ -3,141 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boutique | Modern Essentials</title>
+    <title>Veloura Atelier | Luxury Boutique</title>
     <meta
       name="description"
-      content="Boutique is a modern lifestyle shop featuring curated fashion, accessories, and home essentials."
+      content="Veloura Atelier is a luxury boutique offering refined fashion, home pieces, and elevated essentials for modern living."
     />
     <style>
       :root {
-        --bg: #fffaf6;
-        --panel: #ffffff;
-        --panel-soft: #f5efe9;
-        --primary: #3d2b2a;
-        --primary-soft: #8f6a5b;
-        --accent: #d9b08c;
-        --accent-soft: #f4d8ba;
-        --text: #2d2a2a;
-        --muted: #6a5e5b;
-        --line: rgba(61, 43, 42, 0.12);
-        --shadow: 0 20px 45px rgba(61, 43, 42, 0.12);
+        --navy-900: #0d1631;
+        --navy-800: #101d3c;
+        --navy-700: #1a2d52;
+        --violet-500: #7d6bff;
+        --violet-400: #9e8df5;
+        --violet-200: #e5e0ff;
+        --gold-300: #d6c1a0;
+        --gold-200: #ead9b8;
+        --ivory: #f6f1ea;
+        --white: #ffffff;
+        --text: #1b2134;
+        --muted: #5a647d;
+        --line: rgba(18, 27, 48, 0.12);
+        --shadow: 0 28px 60px rgba(13, 22, 49, 0.18);
       }
 
       * { box-sizing: border-box; }
-
       html { scroll-behavior: smooth; }
 
       body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+        background: linear-gradient(180deg, #f7f4f9 0%, #f3f2f7 100%);
         color: var(--text);
         line-height: 1.6;
       }
 
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
 
       .container {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1180px, calc(100% - 36px));
         margin: 0 auto;
       }
 
       .topbar {
-        background: rgba(255, 255, 255, 0.82);
-        backdrop-filter: blur(12px);
         position: sticky;
         top: 0;
         z-index: 20;
-        border-bottom: 1px solid var(--line);
+        background: rgba(12, 17, 29, 0.82);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
       }
 
       .nav {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        padding: 18px 0;
-        gap: 20px;
+        align-items: center;
+        min-height: 78px;
+        gap: 22px;
       }
 
       .brand {
-        font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
-        font-weight: 700;
-        letter-spacing: 0.12em;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--white);
+        letter-spacing: 0.2em;
         text-transform: uppercase;
+        font-size: 0.78rem;
+        font-weight: 700;
       }
 
-      .brand span {
-        color: var(--primary-soft);
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--violet-400), var(--gold-200));
+        color: var(--navy-900);
+        font-size: 0.8rem;
+        font-weight: 800;
       }
 
       .nav-links {
         display: flex;
         align-items: center;
         gap: 28px;
-        color: var(--muted);
-        font-size: 0.95rem;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.92rem;
       }
 
-      .nav-links a:hover { color: var(--primary); }
+      .nav-links a:hover { color: var(--white); }
 
       .nav-cta {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--primary);
-        color: white;
-        padding: 12px 22px;
+        padding: 12px 20px;
         border-radius: 999px;
-        font-weight: 600;
-        transition: transform 0.2s ease;
+        background: linear-gradient(135deg, var(--violet-400), var(--gold-200));
+        color: var(--navy-900);
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(140, 120, 255, 0.4);
       }
 
-      .nav-cta:hover { transform: translateY(-1px); }
-
       .hero {
-        padding: 72px 0 54px;
+        padding: 58px 0 48px;
+        background:
+          radial-gradient(circle at top left, rgba(157, 139, 255, 0.24), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(214, 193, 160, 0.24), transparent 26%),
+          linear-gradient(135deg, #0e1833 0%, #111d3e 38%, #1a2348 100%);
+        color: var(--white);
       }
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.06fr 0.94fr;
+        grid-template-columns: 1.1fr 0.9fr;
         align-items: center;
-        gap: 40px;
+        gap: 32px;
       }
 
       .eyebrow {
         display: inline-block;
         padding: 8px 14px;
+        background: rgba(164, 148, 255, 0.18);
+        border: 1px solid rgba(158, 141, 245, 0.4);
         border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--primary);
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
+        color: var(--violet-200);
+        letter-spacing: 0.14em;
+        font-size: 0.72rem;
         text-transform: uppercase;
         font-weight: 700;
       }
 
       h1 {
         margin: 18px 0 18px;
-        font-size: clamp(2.7rem, 2rem + 2vw, 5rem);
-        line-height: 0.98;
+        font-size: clamp(3rem, 2.2rem + 2.4vw, 6rem);
+        line-height: 0.95;
         letter-spacing: -0.06em;
-        font-weight: 700;
       }
 
       .hero-copy p {
-        margin: 0 0 28px;
-        max-width: 580px;
-        color: var(--muted);
-        font-size: 1.06rem;
+        margin: 0 0 30px;
+        max-width: 560px;
+        color: rgba(255,255,255,0.75);
+        font-size: 1.05rem;
       }
 
       .hero-actions {
@@ -154,23 +165,20 @@
         padding: 16px 26px;
         border-radius: 999px;
         font-weight: 700;
-        transition: 0.2s ease;
+        transition: transform 0.2s ease;
       }
 
+      .button:hover { transform: translateY(-2px); }
+
       .button.primary {
-        background: var(--primary);
-        color: white;
-        box-shadow: var(--shadow);
+        background: linear-gradient(135deg, var(--gold-200), var(--violet-400));
+        color: var(--navy-900);
       }
 
       .button.secondary {
-        background: #fff;
-        color: var(--primary);
-        border: 1px solid var(--line);
-      }
-
-      .button:hover {
-        transform: translateY(-2px);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.18);
+        color: var(--white);
       }
 
       .metrics {
@@ -182,81 +190,80 @@
 
       .metric strong {
         display: block;
-        font-size: clamp(1.5rem, 1.2rem + 0.7vw, 2.1rem);
+        font-size: clamp(1.5rem, 1.2rem + 0.8vw, 2.2rem);
         line-height: 1;
       }
 
       .metric span {
-        color: var(--muted);
+        color: rgba(255,255,255,0.7);
         font-size: 0.9rem;
       }
 
       .hero-visual {
         position: relative;
-        min-height: 560px;
+        min-height: 580px;
       }
 
-      .photo-card {
+      .glass-card {
         position: absolute;
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 26px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 28px;
+        backdrop-filter: blur(12px);
         box-shadow: var(--shadow);
         overflow: hidden;
       }
 
-      .photo-card.main {
-        inset: 20px 0 60px 70px;
-      }
-
-      .photo-card.side {
-        width: 220px;
-        right: 18px;
-        top: 130px;
-        padding: 14px;
-        background: rgba(255,255,255,0.9);
+      .glass-card.main {
+        inset: 24px 38px 50px 42px;
       }
 
       .main-visual {
         height: 100%;
         min-height: 500px;
         background:
-          linear-gradient(180deg, rgba(68,39,31,0.12), rgba(68,39,31,0.36)),
+          linear-gradient(180deg, rgba(17, 28, 49, 0.18), rgba(17, 28, 49, 0.3)),
           url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       }
 
-      .side-badge {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 12px;
+      .floating-card {
+        position: absolute;
+        right: 10px;
+        top: 120px;
+        width: 220px;
+        padding: 18px;
+        background: rgba(17, 29, 52, 0.78);
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
       }
 
-      .side-badge .tag {
+      .floating-card .tag {
         display: inline-block;
         padding: 7px 10px;
-        background: var(--panel-soft);
         border-radius: 999px;
+        background: rgba(157, 139, 255, 0.16);
+        color: var(--violet-200);
         font-size: 0.7rem;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--primary);
         font-weight: 700;
       }
 
-      .side-badge h3 {
+      .floating-card h3 {
         margin: 12px 0 6px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        color: var(--white);
       }
 
-      .side-badge p {
+      .floating-card p {
         margin: 0;
-        color: var(--muted);
+        color: rgba(255,255,255,0.72);
         font-size: 0.9rem;
       }
 
       .section {
-        padding: 42px 0;
+        padding: 72px 0;
       }
 
       .section-head {
@@ -264,47 +271,47 @@
         align-items: end;
         justify-content: space-between;
         gap: 20px;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
       }
 
       .section-head h2 {
         margin: 0;
-        font-size: clamp(2rem, 1.5rem + 1vw, 3rem);
-        letter-spacing: -0.04em;
+        font-size: clamp(2.2rem, 1.8rem + 1vw, 3rem);
+        letter-spacing: -0.05em;
       }
 
       .section-head a {
-        color: var(--primary-soft);
+        color: var(--navy-700);
         font-weight: 700;
       }
 
       .categories {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
+        gap: 24px;
       }
 
       .category {
-        background: linear-gradient(180deg, #fff 0%, #fffaf8 100%);
+        background: linear-gradient(180deg, #fff 0%, #f8f3ff 100%);
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 26px;
         overflow: hidden;
-        box-shadow: 0 10px 25px rgba(61, 43, 42, 0.05);
+        box-shadow: 0 10px 30px rgba(16, 29, 60, 0.05);
       }
 
       .category-image {
-        height: 240px;
+        height: 260px;
         background-size: cover;
         background-position: center;
       }
 
       .category-content {
-        padding: 22px 20px 24px;
+        padding: 22px 20px 26px;
       }
 
       .category-content h3 {
         margin: 0 0 8px;
-        font-size: 1.45rem;
+        font-size: 1.5rem;
       }
 
       .category-content p {
@@ -312,22 +319,22 @@
         color: var(--muted);
       }
 
-      .featured {
+      .product-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 22px;
+        gap: 24px;
       }
 
       .product {
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 22px;
+        border-radius: 24px;
         overflow: hidden;
-        box-shadow: 0 10px 25px rgba(61, 43, 42, 0.04);
+        box-shadow: 0 12px 30px rgba(16, 29, 60, 0.05);
       }
 
       .product-image {
-        height: 260px;
+        height: 290px;
         background-size: cover;
         background-position: center;
       }
@@ -340,19 +347,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 8px;
-      }
-
-      .product-meta span {
+        gap: 12px;
         color: var(--muted);
-        font-size: 0.8rem;
+        font-size: 0.74rem;
         text-transform: uppercase;
         letter-spacing: 0.08em;
+        margin-bottom: 10px;
       }
 
       .product-info h3 {
-        margin: 0 0 8px;
+        margin: 0 0 12px;
         font-size: 1.2rem;
       }
 
@@ -360,46 +364,47 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 14px;
+        gap: 16px;
       }
 
       .price {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         font-weight: 700;
+        color: var(--navy-900);
       }
 
       .tag-price {
-        color: var(--primary-soft);
-        background: var(--panel-soft);
+        padding: 7px 10px;
         border-radius: 999px;
-        padding: 6px 10px;
-        font-size: 0.76rem;
+        font-size: 0.72rem;
         font-weight: 700;
+        color: var(--navy-800);
+        background: var(--violet-200);
       }
 
       .story {
         display: grid;
-        grid-template-columns: 0.92fr 1.08fr;
-        gap: 28px;
-        padding: 18px 0 52px;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 30px;
+        align-items: center;
       }
 
       .story-panel {
-        background: linear-gradient(180deg, #fffaf6 0%, #fff 100%);
+        background: linear-gradient(180deg, #f8f4ff 0%, #fff 100%);
         border: 1px solid var(--line);
         border-radius: 28px;
-        padding: 28px;
+        padding: 34px 30px;
       }
 
       .story-panel h2 {
-        font-size: clamp(2rem, 1.5rem + 1vw, 2.7rem);
-        margin: 10px 0 18px;
-        letter-spacing: -0.04em;
+        margin: 12px 0 18px;
+        font-size: clamp(2.3rem, 1.7rem + 1vw, 3rem);
+        letter-spacing: -0.05em;
       }
 
       .story-panel p {
+        margin: 0 0 22px;
         color: var(--muted);
-        margin: 0 0 20px;
       }
 
       .feature-list {
@@ -407,45 +412,44 @@
         padding: 0;
         margin: 0;
         display: grid;
-        gap: 14px;
+        gap: 16px;
       }
 
       .feature-list li {
         display: flex;
-        align-items: flex-start;
         gap: 12px;
+        align-items: flex-start;
         color: var(--text);
       }
 
       .check {
-        width: 24px;
-        height: 24px;
-        flex: 0 0 24px;
+        width: 26px;
+        height: 26px;
         border-radius: 50%;
-        background: var(--accent-soft);
-        color: var(--primary);
+        background: linear-gradient(135deg, var(--gold-200), var(--violet-200));
+        color: var(--navy-900);
+        font-weight: 800;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-weight: 700;
-        margin-top: 3px;
+        flex: 0 0 26px;
       }
 
       .story-visual {
         min-height: 440px;
-        border-radius: 28px;
         background:
-          linear-gradient(180deg, rgba(44, 30, 28, 0.12), rgba(44, 30, 28, 0.26)),
+          linear-gradient(180deg, rgba(12, 17, 29, 0.12), rgba(12, 17, 29, 0.28)),
           url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        border-radius: 30px;
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
       }
 
       .newsletter {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
-        color: #fff;
+        background: linear-gradient(135deg, #0e1730 0%, #1b2d52 52%, #4d3a73 100%);
+        color: var(--white);
         border-radius: 30px;
-        padding: 36px 32px;
+        padding: 40px 32px;
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 26px;
@@ -454,19 +458,20 @@
 
       .newsletter h2 {
         margin: 0 0 10px;
-        font-size: clamp(2rem, 1.6rem + 1vw, 2.8rem);
-        letter-spacing: -0.04em;
+        font-size: clamp(2.1rem, 1.7rem + 1vw, 3rem);
+        letter-spacing: -0.05em;
       }
 
       .newsletter p {
         margin: 0;
-        color: rgba(255,255,255,0.8);
+        color: rgba(255,255,255,0.72);
       }
 
       .newsletter-form {
         display: flex;
         gap: 10px;
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
         border-radius: 999px;
         padding: 10px;
       }
@@ -475,8 +480,8 @@
         flex: 1;
         border: none;
         background: transparent;
-        color: white;
-        padding: 14px 16px;
+        color: var(--white);
+        padding: 14px 18px;
         outline: none;
         font-size: 1rem;
       }
@@ -486,39 +491,33 @@
       .newsletter-form button {
         border: none;
         border-radius: 999px;
-        background: white;
-        color: var(--primary);
         padding: 14px 22px;
-        font-weight: 700;
+        background: linear-gradient(135deg, var(--gold-200), var(--violet-400));
+        color: var(--navy-900);
+        font-weight: 800;
         cursor: pointer;
       }
 
       footer {
-        padding: 30px 0 44px;
+        padding: 34px 0 42px;
       }
 
       .footer-wrap {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
-        gap: 12px;
+        gap: 20px;
+        padding-top: 22px;
         border-top: 1px solid var(--line);
-        padding-top: 24px;
         color: var(--muted);
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 920px) {
         .hero-grid,
         .story,
         .newsletter,
         .categories,
-        .featured {
+        .product-grid {
           grid-template-columns: 1fr;
-        }
-
-        .hero-visual {
-          min-height: 420px;
         }
 
         .nav-links {
@@ -527,28 +526,14 @@
       }
 
       @media (max-width: 560px) {
-        .hero {
-          padding-top: 42px;
-        }
-
-        .hero-visual {
-          min-height: 340px;
-        }
-
-        .photo-card.main {
-          inset: 20px 0 40px 20px;
-        }
-
-        .photo-card.side {
-          width: 180px;
-          right: 8px;
-          top: 90px;
-        }
-
+        .hero { padding-top: 42px; }
+        .hero-visual { min-height: 350px; }
+        .glass-card.main { inset: 20px 18px 28px 18px; }
+        .floating-card { width: 172px; right: 8px; top: 88px; }
         .newsletter-form {
           display: grid;
           grid-template-columns: 1fr;
-          border-radius: 20px;
+          border-radius: 22px;
         }
       }
     </style>
@@ -556,14 +541,17 @@
   <body>
     <header class="topbar">
       <div class="container nav">
-        <a class="brand" href="#">Boutique<span>.</span></a>
+        <a class="brand" href="#">
+          <span class="brand-mark">V</span>
+          Veloura
+        </a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#collections">Collections</a>
           <a href="#featured">Featured</a>
           <a href="#about">About</a>
           <a href="#journal">Journal</a>
         </nav>
-        <a class="nav-cta" href="#newsletter">Shop Now</a>
+        <a class="nav-cta" href="#newsletter">Shop now</a>
       </div>
     </header>
 
@@ -571,44 +559,42 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Curated living</span>
-            <h1>Elevate everyday essentials.</h1>
+            <span class="eyebrow">Luxury redefined</span>
+            <h1>Modern opulence for everyday life.</h1>
             <p>
-              Discover refined pieces for your home, wardrobe, and routine—carefully chosen
-              to bring comfort, beauty, and a touch of luxury into daily life.
+              Discover elevated essentials, designer-inspired statement pieces, and refined home accents
+              that blend elegance with practical living.
             </p>
 
             <div class="hero-actions">
-              <a class="button primary" href="#featured">Explore Collection</a>
-              <a class="button secondary" href="#about">Our Story</a>
+              <a class="button primary" href="#featured">Explore collection</a>
+              <a class="button secondary" href="#about">Our story</a>
             </div>
 
-            <div class="metrics" aria-label="Boutique metrics">
+            <div class="metrics" aria-label="Luxury boutique metrics">
               <div class="metric">
-                <strong>2k+</strong>
-                <span>happy customers</span>
+                <strong>2.4k+</strong>
+                <span>global clients</span>
               </div>
               <div class="metric">
-                <strong>150+</strong>
-                <span>premium items</span>
+                <strong>180+</strong>
+                <span>luxury pieces</span>
               </div>
               <div class="metric">
                 <strong>4.9/5</strong>
-                <span>average rating</span>
+                <span>client rating</span>
               </div>
             </div>
           </div>
 
-          <div class="hero-visual" aria-label="Boutique lifestyle image">
-            <div class="photo-card main">
+          <div class="hero-visual" aria-label="Luxury boutique visual">
+            <div class="glass-card main">
               <div class="main-visual"></div>
             </div>
-            <div class="photo-card side">
-              <div class="side-badge">
-                <span class="tag">New arrival</span>
-                <h3>Soft neutrals</h3>
-                <p>Thoughtful pieces for a warm, modern home.</p>
-              </div>
+            <div class="floating-card">
+              <span class="tag">New arrival</span>
+              <h3>Midnight edit</h3>
+              <p>Statement silhouettes and sculpted essentials.</p>
             </div>
           </div>
         </div>
@@ -617,7 +603,7 @@
       <section class="section" id="collections">
         <div class="container">
           <div class="section-head">
-            <h2>Shop by mood</h2>
+            <h2>Curated collections</h2>
             <a href="#featured">View all</a>
           </div>
 
@@ -626,7 +612,7 @@
               <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80');"></div>
               <div class="category-content">
                 <h3>Wardrobe</h3>
-                <p>Polished staples and statement layers made to mix beautifully.</p>
+                <p>Refined tailoring and softly structured essentials designed to last.</p>
               </div>
             </article>
 
@@ -634,7 +620,7 @@
               <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80');"></div>
               <div class="category-content">
                 <h3>Home</h3>
-                <p>Warm, tactile decor and everyday objects for elevated spaces.</p>
+                <p>Thoughtful decor, tactile textures, and elevated pieces for serene living.</p>
               </div>
             </article>
 
@@ -642,7 +628,7 @@
               <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80');"></div>
               <div class="category-content">
                 <h3>Accessories</h3>
-                <p>Finishing touches that add personality to every look and room.</p>
+                <p>Polished details that complete every look with quiet confidence.</p>
               </div>
             </article>
           </div>
@@ -652,22 +638,22 @@
       <section class="section" id="featured">
         <div class="container">
           <div class="section-head">
-            <h2>Featured picks</h2>
+            <h2>Featured pieces</h2>
             <a href="#newsletter">Get the look</a>
           </div>
 
-          <div class="featured">
+          <div class="product-grid">
             <article class="product">
               <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80');"></div>
               <div class="product-info">
                 <div class="product-meta">
                   <span>Home</span>
-                  <span>New</span>
+                  <span>Limited</span>
                 </div>
-                <h3>Amber Vase</h3>
+                <h3>Velvet Vase</h3>
                 <div class="price-row">
-                  <div class="price">$48</div>
-                  <div class="tag-price">Best seller</div>
+                  <div class="price">$148</div>
+                  <span class="tag-price">Signature</span>
                 </div>
               </div>
             </article>
@@ -676,13 +662,13 @@
               <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80');"></div>
               <div class="product-info">
                 <div class="product-meta">
-                  <span>Wardrobe</span>
-                  <span>Limited</span>
+                  <span>Fashion</span>
+                  <span>New</span>
                 </div>
-                <h3>Ivory Trench</h3>
+                <h3>Midnight Trench</h3>
                 <div class="price-row">
-                  <div class="price">$132</div>
-                  <div class="tag-price">Editor pick</div>
+                  <div class="price">$280</div>
+                  <span class="tag-price">Bestseller</span>
                 </div>
               </div>
             </article>
@@ -694,10 +680,10 @@
                   <span>Accessories</span>
                   <span>Classic</span>
                 </div>
-                <h3>Leather Tote</h3>
+                <h3>Ivory Leather Tote</h3>
                 <div class="price-row">
-                  <div class="price">$96</div>
-                  <div class="tag-price">New drop</div>
+                  <div class="price">$210</div>
+                  <span class="tag-price">Editor’s pick</span>
                 </div>
               </div>
             </article>
@@ -707,12 +693,12 @@
               <div class="product-info">
                 <div class="product-meta">
                   <span>Beauty</span>
-                  <span>Giftable</span>
+                  <span>Gift</span>
                 </div>
-                <h3>Signature Set</h3>
+                <h3>Veloura Set</h3>
                 <div class="price-row">
-                  <div class="price">$58</div>
-                  <div class="tag-price">Bestseller</div>
+                  <div class="price">$96</div>
+                  <span class="tag-price">Private</span>
                 </div>
               </div>
             </article>
@@ -722,34 +708,33 @@
 
       <section class="section story" id="about">
         <div class="story-panel">
-          <span class="eyebrow">Why boutique</span>
-          <h2>Thoughtful details, beautifully lived.</h2>
+          <span class="eyebrow">Crafted with intention</span>
+          <h2>Luxury that feels personal and timeless.</h2>
           <p>
-            We believe the best purchases are the ones that feel personal—crafted to last,
-            designed to be loved, and chosen with intention.
+            At Veloura, every piece is chosen to add softness, structure, and distinction to refined living—balancing beauty, function, and a sense of occasion in everyday moments.
           </p>
 
           <ul class="feature-list">
-            <li><span class="check">✓</span> Curated collections from independent brands and timeless essentials.</li>
-            <li><span class="check">✓</span> Premium pieces chosen for quality, comfort, and effortless style.</li>
-            <li><span class="check">✓</span> Thoughtful service and quick delivery for a seamless shopping experience.</li>
+            <li><span class="check">✓</span> Exquisite materials selected for quality, longevity, and subtle statement.</li>
+            <li><span class="check">✓</span> Artfully curated pieces that pair minimalism with rich, elevated details.</li>
+            <li><span class="check">✓</span> Personalized service and world-class presentation from first click to delivery.</li>
           </ul>
         </div>
 
-        <div class="story-visual" aria-label="Boutique interior lifestyle"></div>
+        <div class="story-visual" aria-label="Luxury boutique interior"></div>
       </section>
 
       <section class="section" id="journal">
         <div class="container">
           <div id="newsletter" class="newsletter">
             <div>
-              <h2>Join our list for new arrivals and private offers.</h2>
-              <p>Fresh edits, styling inspiration, and exclusive discounts delivered weekly.</p>
+              <h2>Receive private access to new arrivals and limited editions.</h2>
+              <p>Curated updates, styling notes, and exclusive offers delivered with elegance.</p>
             </div>
 
             <form class="newsletter-form" action="#" method="post">
               <input type="email" placeholder="Your email address" aria-label="Your email address" />
-              <button type="submit">Subscribe</button>
+              <button type="submit">Join now</button>
             </form>
           </div>
         </div>
@@ -758,8 +743,8 @@
 
     <footer>
       <div class="container footer-wrap">
-        <div>© 2026 Boutique</div>
-        <div>Designed for everyday elegance</div>
+        <div>© 2026 Veloura Atelier</div>
+        <div>Refined living, beautifully considered.</div>
       </div>
     </footer>
   </body>
